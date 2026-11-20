@@ -1,61 +1,21 @@
-// Every tuning number and colour in one place. The playfield is a fixed 1280x720 logical area;
-// the renderer scales it to the window, so no rule below depends on the screen size.
-
-export const FIELD = { width: 1280, height: 720, groundY: 664 };
-
-/** The simulation's fixed step, in seconds: 60 updates a second whatever the display's rate. */
-export const STEP = 1 / 60;
-
-export const PLAYER = {
-  width: 72,
-  height: 24,
-  speed: 560,
-  invulnerable: 1.5,
+// World and gameplay constants for NEON PALMS v2.
+export const WORLD = {
+  seedDefault: 7,
+  block: 60,
+  roadHalf: 7,
+  grid: 3,
+  beachZ: 168,
+  bound: 196,
 };
-
-export const LIVES = 3;
-
-export const BLOCK = {
-  minWidth: 40,
-  maxWidth: 110,
-  height: 36,
-  speed: 240,
-  speedPerLevel: 30,
-  speedJitter: 90,
-  interval: 0.55,
-  intervalScale: 0.88,
-  minInterval: 0.14,
-  dodgePoints: 1,
-};
-
-export const COIN = {
-  size: 24,
-  speed: 190,
-  speedPerLevel: 14,
-  interval: 1.4,
-  intervalJitter: 0.8,
-  points: 10,
-};
-
-/** Seconds of play per level, and the last level: speeds and spawn rates stop growing there. */
-export const LEVEL = { seconds: 12, max: 12 };
-
-/** How many falling things can exist at once; the pool is allocated once, at boot. */
-export const POOL_SIZE = 64;
-
-export const PALETTE = {
-  backdrop: '#11141b',
-  sky: '#1b1f2a',
-  ground: '#2a3040',
-  player: '#4fc3f7',
-  block: '#e5534b',
-  coin: '#f2c94c',
-  panel: '#252b38',
-  text: '#eef1f5',
-  muted: '#8b93a3',
-};
-
-export const FONT = 'system-ui, -apple-system, "Segoe UI", sans-serif';
-
-/** Where the best score is kept between visits (this browser only). */
-export const BEST_KEY = 'block-dodger.best';
+export const PLAYER = { walk: 7, run: 11.5, radius: 0.9, health: 100 };
+export const CAR = { maxSpeed: 34, maxReverse: 10, accel: 17, brake: 28, turn: 1.85 };
+export const MISSIONS = [
+  { id: 'm1', title: 'First Run', pay: 150, time: 80, kind: 'checkpoints', count: 4, text: 'Drive through 4 checkpoints across town' },
+  { id: 'm2', title: 'Hot Package', pay: 300, time: 95, kind: 'deliver', stars: 2, text: 'Pick up the package, then deliver it across town' },
+  { id: 'm3', title: 'Cash Drops', pay: 400, time: 105, kind: 'collect', count: 3, text: 'Collect 3 glowing cash drops before time runs out' },
+  { id: 'm4', title: 'The Getaway', pay: 500, time: 130, kind: 'escape', stars: 3, text: 'Reach the hideout, then lose the heat completely' },
+  { id: 'm5', title: 'Harbor Finale', pay: 800, time: 160, kind: 'deliverCar', stars: 4, text: 'Deliver the hot car to the marina at the far edge of town' },
+];
+export const SAVE_KEY = 'neonpalms-save-v2';
+export const SHOP_NAMES = ['PALM MART','NEON NOODLES','SURF & COFFEE','TACO SOL','VINYL VAULT','CORAL CUTS','PIZZA PALMERA','GYM LAGOON','BOOK BREEZE','DONUT DOCK'];
+export const BILLBOARDS = ['PALMERA COLA','SUNSET RADIO','LAGOON HOTEL','NEON PALMS','CORAL AIR','BAY BURGERS'];
